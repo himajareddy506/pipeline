@@ -1,10 +1,10 @@
 node('master'){
    
    stage('git checkout'){
-                  git 'https://github.com/himajareddy506/LMSBackend.git'
+                  git branch: 'dev',: url:https://github.com/himajareddy506/LMSBackend.git'
               }
    stage('java build'){
-             sh '/opt/maven/bin/mvn clean install sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
+             sh '/opt/maven/bin/mvn clean deploy sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
          }
 
    stage('Running java backend application'){
